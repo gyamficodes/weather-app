@@ -42,7 +42,16 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+  async  fetchWeaterData(){
+  const  apiKey = '';
+  const city = this.cityname;
+  const apiUrl = ``;
+    }
+  },
+  mounted(){
+    this.fetchWeaterData()
+  }
 };
 </script>
 
