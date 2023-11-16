@@ -22,21 +22,22 @@
         <tbody>
           <tr>
             <th>sea level</th>
-            <td>{{ sea_level }}</td>
+            <td v-if="sea_level > 0">{{ sea_level }}</td>
+            <td v-else>Null</td>
           </tr>
           <tr>
             <th>Humidity</th>
             <td>{{ humidity }}</td>
           </tr>
           <tr>
-            <th>win</th>
+            <th>wind</th>
             <td>{{ wind }}</td>
           </tr>
         </tbody>
       </table>
       <DaysWeather :cityname="cityname"></DaysWeather>
       <div id="div_form" class="d-flex m-3 justify-content-center">
-      <input type="button" value="change location"  class="btn change_btn btn-primary">
+      <input type="button" value="change location" @click="changeLocation"  class="btn change_btn btn-primary">
       </div>
     </div>
     </div>
@@ -83,12 +84,15 @@ export default {
     this.humidity = weatherData.main.humidity;
     this.iconUrl = `https://api.openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
     const d = new Date();
+
     this.date = d.getDate() + '-' + this.monthNames[d.getMonth()] + '-' + d.getFullYear();
      this.time = d.getHours() + ':' + d.getMinutes() + ':' +  d.getSeconds();
     console.log(weatherData)
     },
   methods: {
-  
+  changeLocation(){
+    window.location.reload();
+  }
   },
 };
 </script>
@@ -177,9 +181,7 @@ tr:hover{
   color: red;
 }
 .change_btn{
-  /* background: linear-gradient(to right, cyan, magenta); */
-  background: blue;
-
+  background: linear-gradient(to right, cyan, magenta);
 }
 
 </style>
