@@ -1,6 +1,6 @@
 <template>
   <div class="container p-0">
-    <div class="d-flex ">
+    <div class="d-flex  page">
 
       <div class="card main-div w-100" >
         <div class="p-3">

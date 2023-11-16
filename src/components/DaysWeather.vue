@@ -2,7 +2,7 @@
   <div class="days-tab text-center ">
     <div v-if="Loading" class="Loading">Loading...</div>
    <div v-else >
-    <ul class="p-0" style=" display:flex; align-items: center; justify-content: center;" >
+    <ul class="p-0 item" style=" display:flex; align-items: center; justify-content: center; flex-wrap: wrap;" >
       <li v-for="day in forecast"  :key="day.date" class="li_active">
         <py class="py-3"><img :src="day.iconUrl"></py>
         <py class="py-3">{{ getDayName(day.date) }}</py>
